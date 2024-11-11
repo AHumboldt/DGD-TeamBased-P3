@@ -59,21 +59,21 @@ public class PlayerMovement : MonoBehaviour
             FacingLeft = false;
             FacingRight = false;
         }
-        else if (this.transform.rotation.eulerAngles.z == 180) //Down
+        if (this.transform.rotation.eulerAngles.z == 180) //Down
         {
             FacingUp = false;
             FacingDown = true;
             FacingLeft = false;
             FacingRight = false;
         }
-        else if (this.transform.rotation.eulerAngles.z == 90) //left
+        if (this.transform.rotation.eulerAngles.z == 90) //left
         {
             FacingUp = false;
             FacingDown = false;
             FacingLeft = true;
             FacingRight = false;
         }
-        else if (this.transform.rotation.eulerAngles.z == -90) //right
+        if (this.transform.rotation.eulerAngles.z == -90) //right
         {
             FacingUp = false;
             FacingDown = false;
@@ -94,7 +94,10 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A) && LeftPossible == true)
             {
                 
-                transform.position += new Vector3(-1, 0, 0);
+                if(FacingUp == true)transform.position += new Vector3(-1, 0, 0);
+                if(FacingDown == true)transform.position += new Vector3(1, 0, 0);
+                if(FacingLeft == true)transform.position += new Vector3(0, -1, 0);
+                if(FacingRight == true)transform.position += new Vector3(0, 1, 0);
                 transform.Rotate(0, 0, 90);
 
             }
@@ -102,7 +105,10 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.D) && RightPossible == true)
             {
                 
-                transform.position += new Vector3(1, 0, 0);
+                if(FacingUp == true)transform.position += new Vector3(1, 0, 0);
+                if(FacingDown == true)transform.position += new Vector3(-1, 0, 0);
+                if(FacingLeft == true)transform.position += new Vector3(0, 1, 0);
+                if(FacingRight == true)transform.position += new Vector3(0, -1, 0);
                 transform.Rotate(0, 0, -90);
                 
             }
