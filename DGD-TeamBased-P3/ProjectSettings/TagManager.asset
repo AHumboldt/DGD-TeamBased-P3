@@ -5,12 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Tile
-  - TileF
-  - TileFL
-  - TileFLR
-  - TileL
-  - TileLR
-  - TileR
+  - FTCheck
+  - LTCheck
+  - RTCheck
   layers:
   - Default
   - TransparentFX
