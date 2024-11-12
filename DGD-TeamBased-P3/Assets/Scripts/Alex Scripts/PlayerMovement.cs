@@ -43,15 +43,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        if (FCheck.Detect == true) ForwardPossible = true;
-        else ForwardPossible = false;
-        
-        if (LCheck.Detect == true) LeftPossible = true;
-        else LeftPossible = false;
-        
-        if (RCheck.Detect == true) RightPossible = true;
-        else RightPossible = false;
-        
         if (this.transform.rotation.eulerAngles.z == 0) //up
         {
             FacingUp = true;
@@ -66,14 +57,14 @@ public class PlayerMovement : MonoBehaviour
             FacingLeft = false;
             FacingRight = false;
         }
-        if (this.transform.rotation.eulerAngles.z == 90) //left
+        if (this.transform.rotation.eulerAngles.z == 90 || this.transform.rotation.eulerAngles.z == -270) //left
         {
             FacingUp = false;
             FacingDown = false;
             FacingLeft = true;
             FacingRight = false;
         }
-        if (this.transform.rotation.eulerAngles.z == -90) //right
+        if (this.transform.rotation.eulerAngles.z == -90 || this.transform.rotation.eulerAngles.z == 270) //right
         {
             FacingUp = false;
             FacingDown = false;
@@ -81,6 +72,16 @@ public class PlayerMovement : MonoBehaviour
             FacingRight = true;
         }
 
+        
+        if (FCheck.Detect == true) ForwardPossible = true;
+        if (FCheck.Detect == false) ForwardPossible = false;
+        
+        if (LCheck.Detect == true) LeftPossible = true;
+        if (LCheck.Detect == false) LeftPossible = false;
+        
+        if (RCheck.Detect == true) RightPossible = true;
+        if (RCheck.Detect == false) RightPossible = false;
+        
         if (Input.GetKeyDown(KeyCode.W) && ForwardPossible == true)
         {
             
@@ -99,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
                 if(FacingLeft == true)transform.position += new Vector3(0, -1, 0);
                 if(FacingRight == true)transform.position += new Vector3(0, 1, 0);
                 transform.Rotate(0, 0, 90);
-
+                
             }
 
             if (Input.GetKeyDown(KeyCode.D) && RightPossible == true)

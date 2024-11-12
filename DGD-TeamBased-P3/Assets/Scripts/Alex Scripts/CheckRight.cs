@@ -7,7 +7,7 @@ public class CheckRight : MonoBehaviour
 {
 
     private GameObject Tile;
-    public bool Detect = false;
+    public bool Detect;
     
     // Start is called before the first frame update
     void Start()
