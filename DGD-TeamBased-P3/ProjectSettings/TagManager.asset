@@ -8,6 +8,7 @@ TagManager:
   - FTCheck
   - LTCheck
   - RTCheck
+  - Wall
   layers:
   - Default
   - TransparentFX

@@ -22,13 +22,8 @@ public class CheckForward : MonoBehaviour
     {
 
         if (Floor.tag == "Tile") Detect = true;
+        if (Floor.tag == "Wall") Detect = false;
 
     }
     
-    private void OnTriggerExit2D(Collider2D Floor)
-    {
-
-        Detect = false;
-
-    }
 }
