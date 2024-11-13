@@ -1,11 +1,10 @@
 
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpawnHeartbeat : MonoBehaviour
 {
-    public GameObject HeartbeatRhythm;
-    public float spawnRate = 0.48f;
+    public GameObject heartbeatRhythm;
+    public float spawnRate = 0.79f;
     public float timer = 0;
     void Start()
     {
@@ -15,7 +14,7 @@ public class SpawnHeartbeat : MonoBehaviour
     {
         timer += Time.deltaTime;
         if (timer >= spawnRate){
-            Instantiate(HeartbeatRhythm,new Vector3(13, -3.89f, 0.046094f),Quaternion.identity); //transform.position(15, -3.89f, 0.046094f));
+            Instantiate(heartbeatRhythm,new Vector3(13, -3.89f, 0.046094f),Quaternion.identity);
             timer = 0;
         }
     }
