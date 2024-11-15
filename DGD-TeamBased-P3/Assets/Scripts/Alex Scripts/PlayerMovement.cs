@@ -23,6 +23,11 @@ public class PlayerMovement : MonoBehaviour
     private CheckForward FCheck;
     private CheckLeft LCheck;
     private CheckRight RCheck;
+
+    private bool ClickUp = false;
+    private bool ClickDown = false;
+    private bool ClickLeft = false;
+    private bool ClickRight = false;
     
     //To do List:
     //
@@ -85,10 +90,10 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && ForwardPossible == true)
         {
             
-            if(FacingUp == true)transform.position += new Vector3(0, 1, 0);
-            if(FacingDown == true)transform.position += new Vector3(0, -1, 0);
-            if(FacingLeft == true)transform.position += new Vector3(-1, 0, 0);
-            if(FacingRight == true)transform.position += new Vector3(1, 0, 0);
+            // if(FacingUp == true)transform.position += new Vector3(0, 1, 0);
+            // if(FacingDown == true)transform.position += new Vector3(0, -1, 0);
+            // if(FacingLeft == true)transform.position += new Vector3(-1, 0, 0);
+            // if(FacingRight == true)transform.position += new Vector3(1, 0, 0);
             
         }
 
@@ -113,6 +118,43 @@ public class PlayerMovement : MonoBehaviour
                 transform.Rotate(0, 0, -90);
                 
             }
+        
+
+    }
+
+    void FixdUpdate()
+    {
+
+        if (ClickUp == true)
+        {
+            
+            if(FacingUp == true)transform.position += new Vector3(0, 1, 0);
+            if(FacingDown == true)transform.position += new Vector3(0, -1, 0);
+            if(FacingLeft == true)transform.position += new Vector3(-1, 0, 0);
+            if(FacingRight == true)transform.position += new Vector3(1, 0, 0);
+            
+        }
+        
+        if (ClickDown == true)
+        {
+            
+            
+            
+        }
+        
+        if (ClickLeft == true)
+        {
+            
+            
+            
+        }
+        
+        if (ClickRight == true)
+        {
+            
+            
+            
+        }
         
 
     }

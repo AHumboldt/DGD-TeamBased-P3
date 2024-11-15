@@ -9,6 +9,7 @@ TagManager:
   - LTCheck
   - RTCheck
   - Wall
+  - Enemy
   layers:
   - Default
   - TransparentFX
