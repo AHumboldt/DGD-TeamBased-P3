@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
             FacingLeft = false;
             FacingRight = false;
         }
-        if (this.transform.rotation.eulerAngles.z == 180) //Down
+        if (this.transform.rotation.eulerAngles.z == 180 || this.transform.rotation.eulerAngles.z == -180) //Down
         {
             FacingUp = false;
             FacingDown = true;
