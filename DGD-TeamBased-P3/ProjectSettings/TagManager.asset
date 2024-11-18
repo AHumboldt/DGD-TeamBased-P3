@@ -11,6 +11,10 @@ TagManager:
   - Wall
   - Enemy
   - BTCheck
+  - EFTCheck
+  - EBTCheck
+  - ELTCheck
+  - ERTCheck
   layers:
   - Default
   - TransparentFX
