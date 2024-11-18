@@ -7332,7 +7332,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1184633074}
   - component: {fileID: 1184633073}
-  - component: {fileID: 1184633072}
   m_Layer: 0
   m_Name: Minimap Camera
   m_TagString: Untagged
@@ -7340,14 +7339,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1184633072
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1184633071}
-  m_Enabled: 1
 --- !u!20 &1184633073
 Camera:
   m_ObjectHideFlags: 0
@@ -10658,7 +10649,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1970966193}
   - component: {fileID: 1970966192}
-  - component: {fileID: 1970966191}
   m_Layer: 0
   m_Name: Screen Camera
   m_TagString: MainCamera
@@ -10666,14 +10656,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1970966191
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1970966190}
-  m_Enabled: 1
 --- !u!20 &1970966192
 Camera:
   m_ObjectHideFlags: 0

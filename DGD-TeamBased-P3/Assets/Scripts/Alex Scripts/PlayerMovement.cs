@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     
     //To do List:
     //
+    //- FIX THIS DAMN BACK KEY
     //- Input in Update, respond in FixedUpdate
     
     void Start()
@@ -42,8 +43,11 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        if (this.transform.rotation.eulerAngles.z == 0) //up
+        if (this.transform.rotation.eulerAngles.z == 0 || this.transform.rotation.eulerAngles.z == 360 || this.transform.rotation.eulerAngles.z == -360) //up
         {
+            
+            Debug.Log("The Player is now facing up");
+            
             FacingUp = true;
             FacingDown = false;
             FacingLeft = false;
@@ -51,13 +55,20 @@ public class PlayerMovement : MonoBehaviour
         }
         if (this.transform.rotation.eulerAngles.z == 180 || this.transform.rotation.eulerAngles.z == -180) //Down
         {
+                        
+            Debug.Log("The Player is now facing Down");
+        
             FacingUp = false;
             FacingDown = true;
             FacingLeft = false;
             FacingRight = false;
+            
         }
         if (this.transform.rotation.eulerAngles.z == 90 || this.transform.rotation.eulerAngles.z == -270) //left
         {
+                        
+            Debug.Log("The Player is now facing left");
+
             FacingUp = false;
             FacingDown = false;
             FacingLeft = true;
@@ -65,6 +76,9 @@ public class PlayerMovement : MonoBehaviour
         }
         if (this.transform.rotation.eulerAngles.z == -90 || this.transform.rotation.eulerAngles.z == 270) //right
         {
+                        
+            Debug.Log("The Player is now facing Right");
+
             FacingUp = false;
             FacingDown = false;
             FacingLeft = false;
@@ -101,7 +115,6 @@ public class PlayerMovement : MonoBehaviour
             if(FacingDown == true)transform.position += new Vector3(0, 1, 0);
             if(FacingLeft == true)transform.position += new Vector3(1, 0, 0);
             if(FacingRight == true)transform.position += new Vector3(-1, 0, 0);
-            transform.Rotate(0, 0, 180);
             
         }
 
@@ -130,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    /*void FixdUpdate()
+    /*void FixedUpdate()
     {
 
         if (ClickUp == true)
