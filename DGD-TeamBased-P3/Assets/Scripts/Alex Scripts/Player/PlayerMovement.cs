@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     //
     //- FIX THIS DAMN BACK KEY
     //- Input in Update, respond in FixedUpdate
+    //- Make left, right, and down turn ONLY, not move
     
     void Start()
     {
@@ -107,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
             if(FacingRight == true)transform.position += new Vector3(1, 0, 0);
 
         }
-
+        
         if (Input.GetKeyDown(KeyCode.S) && BackwardPossible == true)
         {
             
@@ -118,7 +119,11 @@ public class PlayerMovement : MonoBehaviour
             //transform.Rotate(0, 0, 180);
             
         }
-
+        /*else if (FacingDown == true)
+        {
+            
+        }
+        */
         if (Input.GetKeyDown(KeyCode.A) && LeftPossible == true)
         {
 

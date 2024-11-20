@@ -20,7 +20,8 @@ public class EnemyMovement : MonoBehaviour
     private EnemyCheckLeft LCheck;
     private EnemyCheckRight RCheck;
 
-    public List<string> Route = new List<string> { "Forward", "Backward", "Left", "Right" };
+    public List<string> PossibleOptions = new List<string> { "Forward", "Backward", "Left", "Right" };
+    public List<string> Available = new List<string>();
     
     void Start()
     {
@@ -43,6 +44,7 @@ public class EnemyMovement : MonoBehaviour
             FacingDown = false;
             FacingLeft = false;
             FacingRight = false;
+            
         }
         if (this.transform.rotation.eulerAngles.z == 180 || this.transform.rotation.eulerAngles.z == -180) //Down
         {
@@ -60,6 +62,7 @@ public class EnemyMovement : MonoBehaviour
             FacingDown = false;
             FacingLeft = true;
             FacingRight = false;
+            
         }
         if (this.transform.rotation.eulerAngles.z == -90 || this.transform.rotation.eulerAngles.z == 270) //right
         {
@@ -68,21 +71,56 @@ public class EnemyMovement : MonoBehaviour
             FacingDown = false;
             FacingLeft = false;
             FacingRight = true;
+            
         }
 
-        
-        if (FCheck.Detect == true) ForwardPossible = true;
+
+        if (FCheck.Detect == true)
+        {
+            
+            ForwardPossible = true;
+            Available.Add(PossibleOptions[0]);
+            
+        }
+
         if (FCheck.Detect == false) ForwardPossible = false;
         
         if (BCheck.Detect == true) BackwardPossible = true;
+        {
+            
+            BackwardPossible = true;
+            Available.Add(PossibleOptions[1]);
+            
+        }
         if (BCheck.Detect == false) BackwardPossible = false;
         
         if (LCheck.Detect == true) LeftPossible = true;
+        {
+            
+            LeftPossible = true;
+            Available.Add(PossibleOptions[2]);
+            
+        }
         if (LCheck.Detect == false) LeftPossible = false;
         
         if (RCheck.Detect == true) RightPossible = true;
+        {
+            
+            RightPossible = true;
+            Available.Add(PossibleOptions[3]);
+            
+        }
         if (RCheck.Detect == false) RightPossible = false;
         
+        
+        for (int i = 0; i < Available.Count; i++)
+        {
+            
+            Debug.Log(Available[i]);
+
+        }
+        
+
         if (Input.GetKeyDown(KeyCode.W) && ForwardPossible == true)
         {
 
@@ -100,7 +138,7 @@ public class EnemyMovement : MonoBehaviour
             if(FacingDown == true)transform.position += new Vector3(0, 1, 0);
             if(FacingLeft == true)transform.position += new Vector3(1, 0, 0);
             if(FacingRight == true)transform.position += new Vector3(-1, 0, 0);
-            //transform.Rotate(0, 0, 180);
+            transform.Rotate(0, 0, 180);
             
         }
 
@@ -111,7 +149,7 @@ public class EnemyMovement : MonoBehaviour
             if(FacingDown == true)transform.position += new Vector3(1, 0, 0);
             if(FacingLeft == true)transform.position += new Vector3(0, -1, 0);
             if(FacingRight == true)transform.position += new Vector3(0, 1, 0);
-            transform.Rotate(0, 0, 90);
+            //transform.Rotate(0, 0, 90);
 
         }
 

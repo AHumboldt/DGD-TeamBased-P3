@@ -4608,6 +4608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 592306320fda1b947a410c7d2251c62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Detect: 0
 --- !u!50 &491779767
 Rigidbody2D:
   serializedVersion: 4
@@ -4888,8 +4889,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 72, y: -5}
-  m_SizeDelta: {x: 625.6, y: 625.6}
+  m_AnchoredPosition: {x: 153.69, y: -0.09}
+  m_SizeDelta: {x: 352.97, y: 367.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &497206008
 MonoBehaviour:
@@ -7078,6 +7079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc273a2530eb3e49979da880a13ca2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Detect: 0
 --- !u!50 &935263861
 Rigidbody2D:
   serializedVersion: 4
@@ -7804,6 +7806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dc006ab7764a4f42a2962f7de2d1bf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Detect: 0
 --- !u!50 &1015587520
 Rigidbody2D:
   serializedVersion: 4
@@ -9019,6 +9022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea8c9da332d58b64caab16677a07f3ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Detect: 0
 --- !u!50 &1198584120
 Rigidbody2D:
   serializedVersion: 4
@@ -14145,6 +14149,7 @@ GameObject:
   - component: {fileID: 2072731056}
   - component: {fileID: 2072731055}
   - component: {fileID: 2072731054}
+  - component: {fileID: 2072731058}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -14284,6 +14289,32 @@ Transform:
   - {fileID: 2073704496}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2072731058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072731053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8622e01c1c7d44557b0a87c3d50a1616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ForwardPossible: 0
+  BackwardPossible: 0
+  LeftPossible: 0
+  RightPossible: 0
+  FacingUp: 0
+  FacingDown: 0
+  FacingLeft: 0
+  FacingRight: 0
+  PossibleOptions:
+  - Forward
+  - Backward
+  - Left
+  - Right
+  Available: []
 --- !u!1 &2073704495
 GameObject:
   m_ObjectHideFlags: 0
