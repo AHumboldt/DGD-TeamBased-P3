@@ -19,9 +19,11 @@ public class EnemyMovement : MonoBehaviour
     private EnemyCheckBackwards BCheck;
     private EnemyCheckLeft LCheck;
     private EnemyCheckRight RCheck;
-
-    public List<string> PossibleOptions = new List<string> { "Forward", "Backward", "Left", "Right" };
+    
     public List<string> Available = new List<string>();
+
+    public int Decider;
+    public float Timer = 3f;
     
     void Start()
     {
@@ -75,42 +77,46 @@ public class EnemyMovement : MonoBehaviour
         }
 
 
+
+
+
         if (FCheck.Detect == true)
         {
             
             ForwardPossible = true;
-            Available.Add(PossibleOptions[0]);
+            Available.Add("Forward");
             
         }
 
         if (FCheck.Detect == false) ForwardPossible = false;
         
-        if (BCheck.Detect == true) BackwardPossible = true;
+        if (BCheck.Detect == true)
         {
             
             BackwardPossible = true;
-            Available.Add(PossibleOptions[1]);
+            Available.Add("Backward");
             
         }
         if (BCheck.Detect == false) BackwardPossible = false;
         
-        if (LCheck.Detect == true) LeftPossible = true;
+        if (LCheck.Detect == true)
         {
             
             LeftPossible = true;
-            Available.Add(PossibleOptions[2]);
+            Available.Add("Left");
             
         }
-        if (LCheck.Detect == false) LeftPossible = false;
+        if (LCheck.Detect == false)
         
-        if (RCheck.Detect == true) RightPossible = true;
+        if (RCheck.Detect == true)
         {
             
             RightPossible = true;
-            Available.Add(PossibleOptions[3]);
+            Available.Add("Right");
             
         }
         if (RCheck.Detect == false) RightPossible = false;
+        
         
         
         for (int i = 0; i < Available.Count; i++)
@@ -120,7 +126,10 @@ public class EnemyMovement : MonoBehaviour
 
         }
         
-
+        
+        
+        
+        
         if (Input.GetKeyDown(KeyCode.W) && ForwardPossible == true)
         {
 
@@ -153,18 +162,32 @@ public class EnemyMovement : MonoBehaviour
 
         }
 
-            if (Input.GetKeyDown(KeyCode.D) && RightPossible == true)
-            {
+        if (Input.GetKeyDown(KeyCode.D) && RightPossible == true) 
+        {
 
-                if(FacingUp == true)transform.position += new Vector3(1, 0, 0);
-                if(FacingDown == true)transform.position += new Vector3(-1, 0, 0);
-                if(FacingLeft == true)transform.position += new Vector3(0, 1, 0);
-                if(FacingRight == true)transform.position += new Vector3(0, -1, 0);
-                transform.Rotate(0, 0, -90);
+            if(FacingUp == true)transform.position += new Vector3(1, 0, 0);
+            if(FacingDown == true)transform.position += new Vector3(-1, 0, 0);
+            if(FacingLeft == true)transform.position += new Vector3(0, 1, 0);
+            if(FacingRight == true)transform.position += new Vector3(0, -1, 0);
+            transform.Rotate(0, 0, -90);
 
-            }
+        }
         
 
+    }
+    
+    void FixedUpdate()
+    {
+            
+        if (Timer == 3)
+        {
+
+            Decider = Random.Range(0, Available.Count);
+            Debug.Log(Decider);
+            Timer -= Time.deltaTime;
+
+        }
+            
     }
     
 }
