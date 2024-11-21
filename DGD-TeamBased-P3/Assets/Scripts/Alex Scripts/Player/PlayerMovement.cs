@@ -24,10 +24,9 @@ public class PlayerMovement : MonoBehaviour
     
     //To do List:
     //
-    //- FIX THIS DAMN BACK KEY
-    //- Input in Update, respond in FixedUpdate
+    //- Make it impossible to move in 2 directions at the same time
     //- Make left, right, and down turn ONLY, not move
-    
+
     void Start()
     {
         
