@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class BruhMovement : MonoBehaviour
@@ -31,6 +32,11 @@ public class BruhMovement : MonoBehaviour
     
     public float timer = 0;
     public float spawnRate = 0.79f;
+    public float delayTimer = 0;
+    public float delayHit = 0.1f;
+
+    public bool MoveCooldown = false;
+    public float MoveCooldownTimer = 0;
     
     //To do List:
     //
@@ -52,75 +58,108 @@ public class BruhMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W) && timer >= 0.5f)
+        if (MainMusic.isPlaying == false)
+        {
+            return;
+        }
+
+        if (ForwardPossible == true && Input.GetKeyDown(KeyCode.W) && (delayTimer >= 0.5f && delayTimer <= delayHit))
         {
             Debug.Log("MovingUp");
             MoveUp = true;
-            
+            //delayTimer = timer;
         }
-        if (Input.GetKeyDown(KeyCode.S) && timer >= 0.5f)
+        if (BackwardPossible == true && Input.GetKeyDown(KeyCode.S) && (delayTimer >= 0.5f && delayTimer <= delayHit))
         {
             MoveDown = true;
+           // delayTimer = timer;
         }
-        if (Input.GetKeyDown(KeyCode.A) && timer >= 0.5f)
+        if (LeftPossible == true && Input.GetKeyDown(KeyCode.A) && (delayTimer >= 0.5f && delayTimer <= delayHit))
         {
             MoveLeft = true;
+           // delayTimer = timer;
         }
-        if (Input.GetKeyDown(KeyCode.D) && timer >= 0.5f)
+        if (RightPossible == true && Input.GetKeyDown(KeyCode.D) && (delayTimer >= 0.5f && delayTimer <= delayHit))
         {
             MoveRight = true;
+           // delayTimer = timer;
         }
     }
     void FixedUpdate()
     {
 
+        if (MainMusic.isPlaying == false)
+        {
+            return;
+        }
+
+        if (MoveCooldown == true)
+        {
+            MoveCooldownTimer += Time.deltaTime;
+            if (MoveCooldownTimer >= 0.5f)
+            {
+                MoveCooldown = false;
+                MoveCooldownTimer = 0;
+            }
+        }
+
         timer += Time.deltaTime;
+        delayTimer += Time.deltaTime;
+        
+         if (delayTimer >= delayHit)
+         {
+            delayTimer = timer;
+         }
         if (timer >= spawnRate)
         {
             timer = 0;
         }
-        
-        if (MoveUp == true && ForwardPossible == true && timer >= 0.75f)
-        {
-            MoveUp = false;
-            if(FacingUp == true)transform.position += new Vector3(0, 1, 0);
-            if(FacingDown == true)transform.position += new Vector3(0, -1, 0);
-            if(FacingLeft == true)transform.position += new Vector3(-1, 0, 0);
-            if(FacingRight == true)transform.position += new Vector3(1, 0, 0);
+        if (MoveCooldown == false){
+            if (MoveUp == true && ForwardPossible == true && delayTimer >= 0.75f)
+            {
+                MoveUp = false;
+                if (FacingUp == true) transform.position += new Vector3(0, 1, 0);
+                if (FacingDown == true) transform.position += new Vector3(0, -1, 0);
+                if (FacingLeft == true) transform.position += new Vector3(-1, 0, 0);
+                if (FacingRight == true) transform.position += new Vector3(1, 0, 0);
+                MoveCooldown = true;
+            }
 
-        }
+            if (MoveDown == true && BackwardPossible == true && delayTimer >= 0.75f)
+            {
+                MoveDown = false;
+                if (FacingUp == true) transform.position += new Vector3(0, -1, 0);
+                if (FacingDown == true) transform.position += new Vector3(0, 1, 0);
+                if (FacingLeft == true) transform.position += new Vector3(1, 0, 0);
+                if (FacingRight == true) transform.position += new Vector3(-1, 0, 0);
+                MoveCooldown = true;
+                //transform.Rotate(0, 0, 180);
 
-        if (MoveDown == true && BackwardPossible == true && timer >= 0.75f)
-        {
-            MoveDown = false;
-            if(FacingUp == true)transform.position += new Vector3(0, -1, 0);
-            if(FacingDown == true)transform.position += new Vector3(0, 1, 0);
-            if(FacingLeft == true)transform.position += new Vector3(1, 0, 0);
-            if(FacingRight == true)transform.position += new Vector3(-1, 0, 0);
-            //transform.Rotate(0, 0, 180);
-            
-        }
+            }
 
-        if (MoveLeft == true && LeftPossible == true && timer >= 0.75f)
-        {
-            MoveLeft = false;
-            if(FacingUp == true)transform.position += new Vector3(-1, 0, 0);
-            if(FacingDown == true)transform.position += new Vector3(1, 0, 0);
-            if(FacingLeft == true)transform.position += new Vector3(0, -1, 0);
-            if(FacingRight == true)transform.position += new Vector3(0, 1, 0);
-            transform.Rotate(0, 0, 90);
+            if (MoveLeft == true && LeftPossible == true && delayTimer >= 0.75f)
+            {
+                MoveLeft = false;
+                if (FacingUp == true) transform.position += new Vector3(-1, 0, 0);
+                if (FacingDown == true) transform.position += new Vector3(1, 0, 0);
+                if (FacingLeft == true) transform.position += new Vector3(0, -1, 0);
+                if (FacingRight == true) transform.position += new Vector3(0, 1, 0);
+                MoveCooldown = true;
+                transform.Rotate(0, 0, 90);
 
-        }
+            }
 
-        if (MoveRight == true && RightPossible == true && timer >= 0.75f)
-        {
-            MoveRight = false;
-            if(FacingUp == true)transform.position += new Vector3(1, 0, 0);
-            if(FacingDown == true)transform.position += new Vector3(-1, 0, 0);
-            if(FacingLeft == true)transform.position += new Vector3(0, 1, 0);
-            if(FacingRight == true)transform.position += new Vector3(0, -1, 0);
-            transform.Rotate(0, 0, -90);
+            if (MoveRight == true && RightPossible == true && delayTimer >= 0.75f)
+            {
+                MoveRight = false;
+                if (FacingUp == true) transform.position += new Vector3(1, 0, 0);
+                if (FacingDown == true) transform.position += new Vector3(-1, 0, 0);
+                if (FacingLeft == true) transform.position += new Vector3(0, 1, 0);
+                if (FacingRight == true) transform.position += new Vector3(0, -1, 0);
+                MoveCooldown = true;
+                transform.Rotate(0, 0, -90);
 
+            }
         }
         if (this.transform.rotation.eulerAngles.z == 0 || this.transform.rotation.eulerAngles.z == 360 || this.transform.rotation.eulerAngles.z == -360) //up
         {

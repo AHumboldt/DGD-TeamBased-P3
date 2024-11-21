@@ -5856,9 +5856,13 @@ MonoBehaviour:
   MoveDown: 0
   MoveLeft: 0
   MoveRight: 0
-  MainMusic: {fileID: 0}
+  MainMusic: {fileID: 1321765014}
   timer: 0
   spawnRate: 0.79
+  delayTimer: 0
+  delayHit: 1
+  MoveCooldown: 0
+  MoveCooldownTimer: 0
 --- !u!50 &910392118
 Rigidbody2D:
   serializedVersion: 4
@@ -8888,7 +8892,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 70b7cd870c975764699587a268d1b702, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
