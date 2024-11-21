@@ -22,7 +22,8 @@ public class EnemyMovement : MonoBehaviour
     
     public List<string> Available = new List<string>();
 
-    public int Decider;
+    public bool ReCalc = true; 
+    public int Decider = 999;
     public float Timer = 3f;
     
     void Start()
@@ -116,20 +117,26 @@ public class EnemyMovement : MonoBehaviour
             
         }
         if (RCheck.Detect == false) RightPossible = false;
-        
-        
-        
-        for (int i = 0; i < Available.Count; i++)
+
+
+
+        if (ReCalc == true)
         {
             
-            Debug.Log(Available[i]);
+            for (int i = 0; i < Available.Count; i++)
+            {
+            
+                Debug.Log(Available[i]);
+                ReCalc = false;
 
+            }
+            
         }
-        
-        
-        
-        
-        
+
+
+
+
+
         if (Input.GetKeyDown(KeyCode.W) && ForwardPossible == true)
         {
 
@@ -173,21 +180,30 @@ public class EnemyMovement : MonoBehaviour
 
         }
         
+        Timer -= Time.deltaTime;
+        
+        if (Timer >= 3)
+        {
+            
+            Decider = Random.Range(0, Available.Count);
+            Debug.Log(Decider);
 
+        }
+        else if (Timer <= 0)
+        {
+            
+            Timer = 3;
+            ReCalc = true;
+            
+        }
+        
     }
     
     void FixedUpdate()
     {
-            
-        if (Timer == 3)
-        {
+        
+        
 
-            Decider = Random.Range(0, Available.Count);
-            Debug.Log(Decider);
-            Timer -= Time.deltaTime;
-
-        }
-            
     }
     
 }
