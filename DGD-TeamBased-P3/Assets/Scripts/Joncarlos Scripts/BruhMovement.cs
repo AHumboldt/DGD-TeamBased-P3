@@ -63,26 +63,34 @@ public class BruhMovement : MonoBehaviour
             return;
         }
 
-        if (ForwardPossible == true && Input.GetKeyDown(KeyCode.W) && (delayTimer >= 0.5f && delayTimer <= delayHit))
+        if (MoveCooldown == false)
         {
-            Debug.Log("MovingUp");
-            MoveUp = true;
-            //delayTimer = timer;
-        }
-        if (BackwardPossible == true && Input.GetKeyDown(KeyCode.S) && (delayTimer >= 0.5f && delayTimer <= delayHit))
-        {
-            MoveDown = true;
-           // delayTimer = timer;
-        }
-        if (LeftPossible == true && Input.GetKeyDown(KeyCode.A) && (delayTimer >= 0.5f && delayTimer <= delayHit))
-        {
-            MoveLeft = true;
-           // delayTimer = timer;
-        }
-        if (RightPossible == true && Input.GetKeyDown(KeyCode.D) && (delayTimer >= 0.5f && delayTimer <= delayHit))
-        {
-            MoveRight = true;
-           // delayTimer = timer;
+            if (ForwardPossible == true && Input.GetKeyDown(KeyCode.W) &&
+                (delayTimer >= 0.6f && delayTimer <= delayHit))
+            {
+                Debug.Log("MovingUp");
+                MoveUp = true;
+                //delayTimer = timer;
+            }
+
+            if (BackwardPossible == true && Input.GetKeyDown(KeyCode.S) &&
+                (delayTimer >= 0.6f && delayTimer <= delayHit))
+            {
+                MoveDown = true;
+                // delayTimer = timer;
+            }
+
+            if (LeftPossible == true && Input.GetKeyDown(KeyCode.A) && (delayTimer >= 0.6f && delayTimer <= delayHit))
+            {
+                MoveLeft = true;
+                // delayTimer = timer;
+            }
+
+            if (RightPossible == true && Input.GetKeyDown(KeyCode.D) && (delayTimer >= 0.6f && delayTimer <= delayHit))
+            {
+                MoveRight = true;
+                // delayTimer = timer;
+            }
         }
     }
     void FixedUpdate()
@@ -96,7 +104,7 @@ public class BruhMovement : MonoBehaviour
         if (MoveCooldown == true)
         {
             MoveCooldownTimer += Time.deltaTime;
-            if (MoveCooldownTimer >= 0.5f)
+            if (MoveCooldownTimer >= 0.4f)
             {
                 MoveCooldown = false;
                 MoveCooldownTimer = 0;
