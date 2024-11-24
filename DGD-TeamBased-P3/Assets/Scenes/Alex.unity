@@ -180,6 +180,65 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dbdbf8cc03064240bfdc48f940dadf4, type: 3}
+--- !u!1 &26850174
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 26850176}
+  - component: {fileID: 26850175}
+  m_Layer: 0
+  m_Name: HoldArt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &26850175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26850174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065585f1f81d84da3a360415eb6e210a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IconsRaw:
+  - Name: FDoor
+    S: {fileID: 21300000, guid: f1f2b5fbb0693a047af55cfc2e18105a, type: 3}
+  - Name: LDoor
+    S: {fileID: 21300000, guid: eda2f88b7fedb9941a7fd21d04710022, type: 3}
+  - Name: RDoor
+    S: {fileID: 21300000, guid: 54734ce1fbca09544bf5fb189a2cf028, type: 3}
+  - Name: FLDoor
+    S: {fileID: 21300000, guid: 1b13aa80097811340bbf5a768fed1224, type: 3}
+  - Name: FRDoor
+    S: {fileID: 21300000, guid: 8f18b71b58ab1a44e993fa7fd580bbcc, type: 3}
+  - Name: LRDoor
+    S: {fileID: 21300000, guid: 6361fe19775e5674799a551b4a60ddac, type: 3}
+  - Name: FLRDoor
+    S: {fileID: 21300000, guid: 04707b8efe00fda4b8d6a08285d0a5b6, type: 3}
+--- !u!4 &26850176
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26850174}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.808728, y: -3.163611, z: -2.1523783}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &29955662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4063,8 +4122,8 @@ GameObject:
   - component: {fileID: 915819812}
   - component: {fileID: 915819811}
   - component: {fileID: 915819810}
-  - component: {fileID: 915819809}
   - component: {fileID: 915819808}
+  - component: {fileID: 915819814}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4080,37 +4139,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915819807}
   m_Enabled: 1
---- !u!114 &915819809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915819807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9a5a44a7270e2f479bf94bcfdc2bfe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ForwardPossible: 0
-  BackwardPossible: 0
-  LeftPossible: 0
-  RightPossible: 0
-  FacingUp: 0
-  FacingDown: 0
-  FacingLeft: 0
-  FacingRight: 0
-  MoveUp: 0
-  MoveDown: 0
-  MoveLeft: 0
-  MoveRight: 0
-  MainMusic: {fileID: 1705064741}
-  timer: 0
-  spawnRate: 0.79
-  delayTimer: 0
-  delayHit: 1
-  MoveCooldown: 0
-  MoveCooldownTimer: 0
 --- !u!50 &915819810
 Rigidbody2D:
   serializedVersion: 4
@@ -4244,6 +4272,34 @@ Transform:
   - {fileID: 1023233166}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &915819814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915819807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37822831d606f3843852eaea742f746e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ForwardPossible: 0
+  BackwardPossible: 0
+  LeftPossible: 0
+  RightPossible: 0
+  FacingUp: 0
+  FacingDown: 0
+  FacingLeft: 0
+  FacingRight: 0
+  MostRecent: 
+  MainMusic: {fileID: 1705064741}
+  timer: 0
+  spawnRate: 0.79
+  delayTimer: 0
+  delayHit: 1
+  MoveCooldown: 0
+  MoveCooldownTimer: 0
 --- !u!1001 &921853167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9658,3 +9714,4 @@ SceneRoots:
   - {fileID: 688354022}
   - {fileID: 723122796}
   - {fileID: 1705064742}
+  - {fileID: 26850176}
