@@ -18,10 +18,10 @@ public class BruhMovementCopy : MonoBehaviour
     public bool FacingLeft = false;
     public bool FacingRight = false;
     
-    public bool MoveUp = false;
-    public bool MoveDown = false;
-    public bool MoveLeft = false;
-    public bool MoveRight = false;
+    // public bool MoveUp = false;
+    // public bool MoveDown = false;
+    // public bool MoveLeft = false;
+    // public bool MoveRight = false;
 
     public string MostRecent = new string("");
 
@@ -127,7 +127,7 @@ public class BruhMovementCopy : MonoBehaviour
         if (MoveCooldown == false){
             if (MostRecent == "Forward" && ForwardPossible == true && delayTimer >= 0.75f)
             {
-                MoveUp = false;
+                MostRecent = "";
                 if (FacingUp == true) transform.position += new Vector3(0, 1, 0);
                 if (FacingDown == true) transform.position += new Vector3(0, -1, 0);
                 if (FacingLeft == true) transform.position += new Vector3(-1, 0, 0);
@@ -137,7 +137,7 @@ public class BruhMovementCopy : MonoBehaviour
 
             if (MostRecent == "Backward" && BackwardPossible == true && delayTimer >= 0.75f)
             {
-                MoveDown = false;
+                MostRecent = "";
                 if (FacingUp == true) transform.position += new Vector3(0, -1, 0);
                 if (FacingDown == true) transform.position += new Vector3(0, 1, 0);
                 if (FacingLeft == true) transform.position += new Vector3(1, 0, 0);
@@ -149,7 +149,7 @@ public class BruhMovementCopy : MonoBehaviour
 
             if (MostRecent == "Left" && LeftPossible == true && delayTimer >= 0.75f)
             {
-                MoveLeft = false;
+                MostRecent = "";
                 if (FacingUp == true) transform.position += new Vector3(-1, 0, 0);
                 if (FacingDown == true) transform.position += new Vector3(1, 0, 0);
                 if (FacingLeft == true) transform.position += new Vector3(0, -1, 0);
@@ -161,7 +161,7 @@ public class BruhMovementCopy : MonoBehaviour
 
             if (MostRecent == "Right" && RightPossible == true && delayTimer >= 0.75f)
             {
-                MoveRight = false;
+                MostRecent = "";
                 if (FacingUp == true) transform.position += new Vector3(1, 0, 0);
                 if (FacingDown == true) transform.position += new Vector3(-1, 0, 0);
                 if (FacingLeft == true) transform.position += new Vector3(0, 1, 0);
