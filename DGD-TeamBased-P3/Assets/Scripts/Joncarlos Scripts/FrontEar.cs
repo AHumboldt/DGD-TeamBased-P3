@@ -28,14 +28,14 @@ public class FrontEar : MonoBehaviour
         }
 
     }
-    private void OnTriggerExit2D(Collider2D Enemy)
-    {
-    
-        if (Enemy.tag == "Enemy")
-        {
-            MonsterHeart.Heart.enabled = false;
-            MonsterHeart.Heart.panStereo = 0;
-        }
-    
-    }
+    // private void OnTriggerExit2D(Collider2D Enemy)
+    // {
+    //
+    //     if (Enemy.tag == "Enemy")
+    //     {
+    //         MonsterHeart.Heart.enabled = false;
+    //         MonsterHeart.Heart.panStereo = 0;
+    //     }
+    //
+    // }
 }

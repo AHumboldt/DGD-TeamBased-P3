@@ -1905,6 +1905,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e98b43070b554b04dadf0d9c46bbf331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  MonsterHeart: {fileID: 1093809186}
 --- !u!1001 &326205095
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2256,6 +2258,7 @@ GameObject:
   - component: {fileID: 371292664}
   - component: {fileID: 371292665}
   - component: {fileID: 371292666}
+  - component: {fileID: 371292667}
   m_Layer: 0
   m_Name: FrontEar
   m_TagString: Untagged
@@ -2375,6 +2378,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &371292667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371292663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53aba1999c829264d90701c0ca26c6da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  MonsterHeart: {fileID: 1093809186}
 --- !u!1001 &383602561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5831,6 +5848,7 @@ GameObject:
   - component: {fileID: 871614350}
   - component: {fileID: 871614351}
   - component: {fileID: 871614352}
+  - component: {fileID: 871614353}
   m_Layer: 0
   m_Name: BackEar
   m_TagString: Untagged
@@ -5950,6 +5968,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &871614353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871614349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53aba1999c829264d90701c0ca26c6da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  MonsterHeart: {fileID: 1093809186}
 --- !u!1 &886768369
 GameObject:
   m_ObjectHideFlags: 0
@@ -8073,7 +8105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db09443f93fb25d4b8aedd9df8f0bf40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Heart: {fileID: 0}
+  Heart: {fileID: 1093809185}
+  AudioPlaying: 0
+  SoundEnter: 0
 --- !u!1 &1101846099
 GameObject:
   m_ObjectHideFlags: 0
@@ -9443,7 +9477,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7ef6536a6e0590147bdfd33c9d8db6a0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
