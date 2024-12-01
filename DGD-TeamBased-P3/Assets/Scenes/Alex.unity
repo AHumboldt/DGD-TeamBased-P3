@@ -211,27 +211,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IconsRaw:
   - Name: FDoor
-    S: {fileID: 21300000, guid: f1f2b5fbb0693a047af55cfc2e18105a, type: 3}
+    S: {fileID: 21300000, guid: eb4d140cdc1e3714a98a149f75a3920a, type: 3}
   - Name: LDoor
-    S: {fileID: 21300000, guid: eda2f88b7fedb9941a7fd21d04710022, type: 3}
+    S: {fileID: 21300000, guid: 465803efa4e264c44be047b5f782089e, type: 3}
   - Name: RDoor
-    S: {fileID: 21300000, guid: 54734ce1fbca09544bf5fb189a2cf028, type: 3}
+    S: {fileID: 21300000, guid: e9d7148b20e815f43b077af2c67d23cb, type: 3}
   - Name: FLDoor
-    S: {fileID: 21300000, guid: 1b13aa80097811340bbf5a768fed1224, type: 3}
+    S: {fileID: 21300000, guid: f6f3829b4e397ea418d808c6dd0685bd, type: 3}
   - Name: FRDoor
-    S: {fileID: 21300000, guid: 8f18b71b58ab1a44e993fa7fd580bbcc, type: 3}
+    S: {fileID: 21300000, guid: 6ebcc9f5cdaee1349adbcc46a9deb10b, type: 3}
   - Name: LRDoor
-    S: {fileID: 21300000, guid: 6361fe19775e5674799a551b4a60ddac, type: 3}
+    S: {fileID: 21300000, guid: 053aa4802d0c19941a69f5422f0c1e59, type: 3}
   - Name: FLRDoor
-    S: {fileID: 21300000, guid: 04707b8efe00fda4b8d6a08285d0a5b6, type: 3}
-  FDoor: {fileID: 0}
-  LDoor: {fileID: 0}
-  RDoor: {fileID: 0}
-  FLDoor: {fileID: 0}
-  FRDoor: {fileID: 0}
-  LRDoor: {fileID: 0}
-  FLRDoor: {fileID: 0}
+    S: {fileID: 21300000, guid: 89920f5085eb83b47a3078132a2b0d85, type: 3}
+  FDoor: {fileID: 21300000, guid: eb4d140cdc1e3714a98a149f75a3920a, type: 3}
+  LDoor: {fileID: 21300000, guid: 465803efa4e264c44be047b5f782089e, type: 3}
+  RDoor: {fileID: 21300000, guid: 08da7f5c936e83b48b25ccce811841b4, type: 3}
+  FLDoor: {fileID: 21300000, guid: f6f3829b4e397ea418d808c6dd0685bd, type: 3}
+  FRDoor: {fileID: 21300000, guid: 6ebcc9f5cdaee1349adbcc46a9deb10b, type: 3}
+  LRDoor: {fileID: 21300000, guid: 053aa4802d0c19941a69f5422f0c1e59, type: 3}
+  FLRDoor: {fileID: 21300000, guid: 89920f5085eb83b47a3078132a2b0d85, type: 3}
   ThisRoom: {fileID: 2092640045}
+  ForwardDoor: 0
+  LeftDoor: 0
+  RightDoor: 0
 --- !u!4 &26850176
 Transform:
   m_ObjectHideFlags: 0
@@ -241,7 +244,7 @@ Transform:
   m_GameObject: {fileID: 26850174}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.808728, y: -3.163611, z: -2.1523783}
+  m_LocalPosition: {x: -21.5, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -702,7 +705,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 1.4548035
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2777,8 +2780,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 125.28, y: -29.7}
-  m_SizeDelta: {x: 409.8, y: 427.15}
+  m_AnchoredPosition: {x: 370.3, y: 164.3}
+  m_SizeDelta: {x: 181.89, y: 189.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &497206008
 MonoBehaviour:
@@ -8618,7 +8621,7 @@ Transform:
   m_GameObject: {fileID: 1970966190}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -21.63, y: 0, z: -10}
+  m_LocalPosition: {x: -21.63, y: 0, z: -14.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9589,7 +9592,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -9603,9 +9606,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092640044}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 102.5}
+  m_LocalScale: {x: 0.95, y: 0.95, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 26850176}
