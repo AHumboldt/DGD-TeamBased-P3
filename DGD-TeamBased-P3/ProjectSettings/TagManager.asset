@@ -15,6 +15,7 @@ TagManager:
   - EBTCheck
   - ELTCheck
   - ERTCheck
+  - Rage
   layers:
   - Default
   - TransparentFX
