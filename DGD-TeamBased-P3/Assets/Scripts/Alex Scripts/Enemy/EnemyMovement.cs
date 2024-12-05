@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
 public class EnemyMovement : MonoBehaviour
@@ -28,6 +29,14 @@ public class EnemyMovement : MonoBehaviour
     public int Decider = 999;
     public string Decision;
     public float Timer = 1.5f;
+
+    public int TestDetect = 0;
+    public RageCheck Check;
+    public bool RageOn = false;
+    public bool CheckArea = true;
+
+    public GameObject Player;
+    public Vector3 PlayerPosition;
     
     void Start()
     {
@@ -36,7 +45,9 @@ public class EnemyMovement : MonoBehaviour
         BCheck = GameObject.FindWithTag("EBTCheck").GetComponent<EnemyCheckBackwards>();
         LCheck = GameObject.FindWithTag("ELTCheck").GetComponent<EnemyCheckLeft>();
         RCheck = GameObject.FindWithTag("ERTCheck").GetComponent<EnemyCheckRight>();
-        
+
+        PlayerPosition = GameObject.FindWithTag("Player").transform.position;
+
     }
 
 
@@ -198,23 +209,33 @@ public class EnemyMovement : MonoBehaviour
             ReCalc = true;
             
         }
-        
-    }
-    
-    void FixedUpdate()
-    {
-        
-        
 
-    }
+        if (Check.Rage == true && CheckArea == true)
+        {
 
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.tag == "Player")
+            TestDetect += 1;
+            RageOn = true;
+            CheckArea = false;
+
+        }
+
+        if (RageOn == true)
         {
             
-            Debug.Log("Player Spotted");
+            
             
         }
+
     }
+
+    // private void OnTriggerEnter2D(Collider2D col)
+    // {
+    //     if (col.tag == "Player")
+    //     {
+    //         
+    //         Debug.Log("Player Spotted");
+    //         TestDetect += 1;
+    //
+    //     }
+    // }
 }
