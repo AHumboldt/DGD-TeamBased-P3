@@ -2785,10 +2785,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2050928418}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 370.3, y: 164.3}
-  m_SizeDelta: {x: 181.89, y: 189.59}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -52.339996, y: -48.490005}
+  m_SizeDelta: {x: 94.57, y: 98.58}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &497206008
 MonoBehaviour:
@@ -9632,6 +9632,11 @@ MonoBehaviour:
   Decision: 
   Timer: 1.5
   TestDetect: 0
+  Check: {fileID: 2073704500}
+  RageOn: 0
+  CheckArea: 1
+  Player: {fileID: 915819807}
+  PlayerPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &2073704495
 GameObject:
   m_ObjectHideFlags: 0
@@ -9644,6 +9649,7 @@ GameObject:
   - component: {fileID: 2073704499}
   - component: {fileID: 2073704498}
   - component: {fileID: 2073704497}
+  - component: {fileID: 2073704500}
   m_Layer: 0
   m_Name: RageCollider
   m_TagString: Rage
@@ -9790,6 +9796,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2073704500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073704495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbff8c994d3064a4f8977fd38b82ef85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rage: 0
 --- !u!1001 &2074125609
 PrefabInstance:
   m_ObjectHideFlags: 0

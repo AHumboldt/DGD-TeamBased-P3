@@ -151,7 +151,7 @@ public class EnemyMovement : MonoBehaviour
 
 
 
-        if (Decision == "Forward")
+        if (Decision == "Forward") 
         {
 
             if(FacingUp == true)transform.position += new Vector3(0, 1, 0);
@@ -222,7 +222,7 @@ public class EnemyMovement : MonoBehaviour
         if (RageOn == true)
         {
             
-            
+            Debug.Log(PlayerPosition);
             
         }
 
