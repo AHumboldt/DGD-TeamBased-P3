@@ -54,6 +54,8 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
 
+        Debug.Log(PlayerPosition);
+        
         Timer -= Time.deltaTime;
         
         if (this.transform.rotation.eulerAngles.z == 0 || this.transform.rotation.eulerAngles.z == 360 || this.transform.rotation.eulerAngles.z == -360) //up
@@ -205,7 +207,8 @@ public class EnemyMovement : MonoBehaviour
         if (Timer <= 0)
         {
             
-            Timer = 1.5f;
+            if (RageOn == false)Timer = 1.5f;
+            if (RageOn == true)Timer = 0.75f;
             ReCalc = true;
             
         }
@@ -221,7 +224,8 @@ public class EnemyMovement : MonoBehaviour
 
         if (RageOn == true)
         {
-            
+
+            PlayerPosition = GameObject.FindWithTag("Player").transform.position;
             Debug.Log(PlayerPosition);
             
         }
