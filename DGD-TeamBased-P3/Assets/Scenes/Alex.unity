@@ -9637,6 +9637,8 @@ MonoBehaviour:
   CheckArea: 1
   Player: {fileID: 915819807}
   PlayerPosition: {x: 0, y: 0, z: 0}
+  Enemy: {fileID: 2072731053}
+  EnemyPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &2073704495
 GameObject:
   m_ObjectHideFlags: 0

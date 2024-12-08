@@ -37,6 +37,8 @@ public class EnemyMovement : MonoBehaviour
 
     public GameObject Player;
     public Vector3 PlayerPosition;
+    public GameObject Enemy;
+    public Vector3 EnemyPosition;
     
     void Start()
     {
@@ -47,6 +49,7 @@ public class EnemyMovement : MonoBehaviour
         RCheck = GameObject.FindWithTag("ERTCheck").GetComponent<EnemyCheckRight>();
 
         PlayerPosition = GameObject.FindWithTag("Player").transform.position;
+        EnemyPosition = GameObject.FindWithTag("Enemy").transform.position;
 
     }
 
@@ -102,44 +105,122 @@ public class EnemyMovement : MonoBehaviour
             
             Available.Clear();
             
-            if (FCheck.Detect == true)
-            {
-            
-                ForwardPossible = true;
-                Available.Add("Forward");
-            
-            }
-
+            if (FCheck.Detect == true) ForwardPossible = true;
             if (FCheck.Detect == false) ForwardPossible = false;
         
-            if (BCheck.Detect == true)
-            {
-            
-                BackwardPossible = true;
-                Available.Add("Backward");
-            
-            }
+            if (BCheck.Detect == true) BackwardPossible = true;
             if (BCheck.Detect == false) BackwardPossible = false;
         
-            if (LCheck.Detect == true)
-            {
-            
-                LeftPossible = true;
-                Available.Add("Left");
-            
-            }
-            if (LCheck.Detect == false)
+            if (LCheck.Detect == true) LeftPossible = true;
+            if (LCheck.Detect == false) LeftPossible = false;
         
-                if (RCheck.Detect == true)
-                {
-            
-                    RightPossible = true;
-                    Available.Add("Right");
-            
-                }
+            if (RCheck.Detect == true) RightPossible = true;
             if (RCheck.Detect == false) RightPossible = false;
-            
-            for (int i = 0; i < Available.Count; i++) Debug.Log(Available[i]);
+
+
+
+            if (ForwardPossible == true && BackwardPossible == false && LeftPossible == false && RightPossible == false)
+            {
+                
+                for (int i = 0; i <= 10; i++) Available.Add("Forward");
+                
+            }
+            if (ForwardPossible == false && BackwardPossible == true && LeftPossible == false && RightPossible == false)
+            {
+                
+                for (int i = 0; i <= 10; i++) Available.Add("Backward");
+                
+            }
+            if (ForwardPossible == false && BackwardPossible == false && LeftPossible == true && RightPossible == false)
+            {
+                
+                for (int i = 0; i <= 10; i++) Available.Add("Left");
+                
+            }
+            if (ForwardPossible == false && BackwardPossible == false && LeftPossible == false && RightPossible == true)
+            {
+                
+                for (int i = 0; i <= 10; i++) Available.Add("Right");
+                
+            }
+            if (ForwardPossible == true && BackwardPossible == true && LeftPossible == false && RightPossible == false)
+            {
+
+                Available.Add("Backward");
+                for (int i = 0; i <= 9; i++) Available.Add("Forward");
+                
+            }
+            if (ForwardPossible == true && BackwardPossible == false && LeftPossible == true && RightPossible == false)
+            {
+
+                for (int i = 0; i <= 5; i++) Available.Add("Forward");
+                for (int i = 0; i <= 5; i++) Available.Add("Left");
+                
+            }
+            if (ForwardPossible == true && BackwardPossible == false && LeftPossible == false && RightPossible == true)
+            {
+
+                for (int i = 0; i <= 5; i++) Available.Add("Forward");
+                for (int i = 0; i <= 5; i++) Available.Add("Right");
+                
+            }
+            if (ForwardPossible == false && BackwardPossible == true && LeftPossible == true && RightPossible == false)
+            {
+                
+                Available.Add("Backward");
+                for (int i = 0; i <= 9; i++) Available.Add("Left");
+                
+            }
+            if (ForwardPossible == false && BackwardPossible == true && LeftPossible == false && RightPossible == true)
+            {
+                
+                Available.Add("Backward");
+                for (int i = 0; i <= 9; i++) Available.Add("Right");
+                
+            }
+            if (ForwardPossible == true && BackwardPossible == true && LeftPossible == true && RightPossible == false)
+            {
+                
+                for (int i = 0; i <= 2; i++) Available.Add("Backward");
+                for (int i = 0; i <= 4; i++) Available.Add("Forward");
+                for (int i = 0; i <= 4; i++) Available.Add("Left");
+                
+            }
+            if (ForwardPossible == true && BackwardPossible == true && LeftPossible == false && RightPossible == true)
+            {
+                
+                for (int i = 0; i <= 2; i++) Available.Add("Backward");
+                for (int i = 0; i <= 4; i++) Available.Add("Forward");
+                for (int i = 0; i <= 4; i++) Available.Add("Right");
+                
+            }
+            if (ForwardPossible == true && BackwardPossible == false && LeftPossible == true && RightPossible == true)
+            {
+
+                for (int i = 0; i <= 6; i++) Available.Add("Forward");
+                for (int i = 0; i <= 2; i++) Available.Add("Left");
+                for (int i = 0; i <= 2; i++) Available.Add("Right");
+                
+            }
+            if (ForwardPossible == false && BackwardPossible == true && LeftPossible == true && RightPossible == true)
+            {
+                
+                for (int i = 0; i <= 2; i++) Available.Add("Backward");
+                for (int i = 0; i <= 4; i++) Available.Add("Left");
+                for (int i = 0; i <= 4; i++) Available.Add("Right");
+                
+            }
+            if (ForwardPossible == true && BackwardPossible == true && LeftPossible == true && RightPossible == true)
+            {
+                
+                Available.Add("Backward");
+                for (int i = 0; i <= 3; i++) Available.Add("Forward");
+                for (int i = 0; i <= 3; i++) Available.Add("Left");
+                for (int i = 0; i <= 3; i++) Available.Add("Right");
+                
+            }
+
+            //for (int i = 0; i < Available.Count; i++) Debug.Log(Available[i]);
             
             Decider = Random.Range(0, Available.Count);
             Decision = Available[Decider];
@@ -216,7 +297,10 @@ public class EnemyMovement : MonoBehaviour
         if (Check.Rage == true && CheckArea == true)
         {
 
-            TestDetect += 1;
+            PlayerPosition = GameObject.FindWithTag("Player").transform.position;
+            EnemyPosition = GameObject.FindWithTag("Enemy").transform.position;
+            Debug.Log(PlayerPosition);
+            Debug.Log(EnemyPosition);
             RageOn = true;
             CheckArea = false;
 
@@ -224,9 +308,8 @@ public class EnemyMovement : MonoBehaviour
 
         if (RageOn == true)
         {
-
-            PlayerPosition = GameObject.FindWithTag("Player").transform.position;
-            Debug.Log(PlayerPosition);
+            
+            
             
         }
 
