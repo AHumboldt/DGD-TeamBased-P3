@@ -16,7 +16,7 @@ public class RightEar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+      
     }
     private void OnTriggerEnter2D(Collider2D Enemy)
     {
@@ -24,7 +24,7 @@ public class RightEar : MonoBehaviour
         if (Enemy.tag == "Enemy")
         {
             MonsterHeart.Heart.enabled = true;
-            MonsterHeart.Heart.panStereo = 1;
+            MonsterHeart.Heart.panStereo = 0.75f;
         }
 
     }
