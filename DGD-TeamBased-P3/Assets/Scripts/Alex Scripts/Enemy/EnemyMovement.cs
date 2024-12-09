@@ -28,6 +28,7 @@ public class EnemyMovement : MonoBehaviour
     public bool ReCalc = true; 
     public int Decider = 999;
     public string Decision;
+    public string RageDecision;
     public float Timer = 1.5f;
 
     public int TestDetect = 0;
@@ -39,6 +40,11 @@ public class EnemyMovement : MonoBehaviour
     public Vector3 PlayerPosition;
     public GameObject Enemy;
     public Vector3 EnemyPosition;
+
+    public bool GoUp = false;
+    public bool GoDown = false;
+    public bool GoLeft = false;
+    public bool GoRight = false;
     
     void Start()
     {
@@ -117,8 +123,10 @@ public class EnemyMovement : MonoBehaviour
             if (RCheck.Detect == true) RightPossible = true;
             if (RCheck.Detect == false) RightPossible = false;
 
-
-
+            
+            
+            if (RageOn == false)
+            {
             if (ForwardPossible == true && BackwardPossible == false && LeftPossible == false && RightPossible == false)
             {
                 
@@ -219,6 +227,17 @@ public class EnemyMovement : MonoBehaviour
                 for (int i = 0; i <= 3; i++) Available.Add("Right");
                 
             }
+            }
+
+            if (RageOn == true)
+            {
+                
+                
+                
+            }
+
+
+
 
             //for (int i = 0; i < Available.Count; i++) Debug.Log(Available[i]);
             
@@ -309,8 +328,12 @@ public class EnemyMovement : MonoBehaviour
         if (RageOn == true)
         {
             
+            if (EnemyPosition.y > PlayerPosition.y) GoDown = true;
+            else if (EnemyPosition.y < PlayerPosition.y) GoUp = true;
             
-            
+            if (EnemyPosition.x > PlayerPosition.x) GoLeft = true;
+            else if (EnemyPosition.x < PlayerPosition.x) GoRight = true;
+
         }
 
     }
