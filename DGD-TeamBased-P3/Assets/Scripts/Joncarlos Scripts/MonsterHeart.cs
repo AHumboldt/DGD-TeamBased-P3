@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class MonsterHeart : MonoBehaviour
 {
-
+    public float xDistance;
+    public float yDistance;
+    
+    public GameObject enemy;
+    public GameObject player;
     public AudioSource Heart;
 
     public bool AudioPlaying = false;
@@ -29,5 +33,16 @@ public class MonsterHeart : MonoBehaviour
         {
             AudioPlaying = false;
         }
+        
+        xDistance = Mathf.Abs(enemy.transform.position.x - player.transform.position.x);
+        yDistance = Mathf.Abs(enemy.transform.position.y - player.transform.position.y);
+        if (xDistance >= 5 || yDistance >= 5)
+        {
+            Heart.enabled = false;
+        }
+        // if (Vector3.Distance(enemy.transform.position, player.transform.position) < 3)
+        // {
+        //     Debug.Log("I am close");
+        // };
     }
 }
