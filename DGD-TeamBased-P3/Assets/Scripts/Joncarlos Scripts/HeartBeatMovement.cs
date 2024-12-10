@@ -15,6 +15,6 @@ public class HeartBeatMovement : MonoBehaviour
     void FixedUpdate()
     {
         transform.position += new Vector3(speed, 0, 0);
-        if (transform.position.x <= -15) {Destroy(gameObject);}
+        if (transform.position.x <= -35) {Destroy(gameObject);}
     }
 }

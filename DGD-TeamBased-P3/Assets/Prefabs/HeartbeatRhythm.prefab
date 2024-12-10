@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5196152196386555824}
   - component: {fileID: 316024119282300728}
   - component: {fileID: 7417040846012353861}
+  - component: {fileID: 5395224043100688842}
   m_Layer: 0
   m_Name: HeartbeatRhythm
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2209224771233334932}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: -3.89, z: 0.046094}
+  m_LocalPosition: {x: -3, y: -3.89, z: 2}
   m_LocalScale: {x: 0.10402438, y: 0.14109772, z: 0.40045476}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -99,6 +100,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -0.1
+--- !u!95 &5395224043100688842
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2209224771233334932}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4512675288730235295
 GameObject:
   m_ObjectHideFlags: 0
