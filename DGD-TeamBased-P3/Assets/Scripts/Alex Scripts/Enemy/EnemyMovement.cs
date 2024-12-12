@@ -45,7 +45,9 @@ public class EnemyMovement : MonoBehaviour
     public bool GoDown = false;
     public bool GoLeft = false;
     public bool GoRight = false;
-    
+    public string CurrentDirect;
+
+
     void Start()
     {
 
@@ -213,41 +215,293 @@ public class EnemyMovement : MonoBehaviour
             if (ForwardPossible == false && BackwardPossible == true && LeftPossible == true && RightPossible == true)
             {
                 
-                for (int i = 0; i <= 2; i++) Available.Add("Backward");
-                for (int i = 0; i <= 4; i++) Available.Add("Left");
-                for (int i = 0; i <= 4; i++) Available.Add("Right");
+                    for (int i = 0; i <= 2; i++) Available.Add("Backward");
+                    for (int i = 0; i <= 4; i++) Available.Add("Left");
+                   for (int i = 0; i <= 4; i++) Available.Add("Right");
                 
             }
             if (ForwardPossible == true && BackwardPossible == true && LeftPossible == true && RightPossible == true)
-            {
+                {
                 
-                Available.Add("Backward");
-                for (int i = 0; i <= 3; i++) Available.Add("Forward");
-                for (int i = 0; i <= 3; i++) Available.Add("Left");
-                for (int i = 0; i <= 3; i++) Available.Add("Right");
+                    Available.Add("Backward");
+                    for (int i = 0; i <= 3; i++) Available.Add("Forward");
+                    for (int i = 0; i <= 3; i++) Available.Add("Left");
+                    for (int i = 0; i <= 3; i++) Available.Add("Right");
                 
-            }
+                }
             }
 
             if (RageOn == true)
             {
+
+                if (GoLeft == true) CurrentDirect = "Left";
+                if (GoRight == true) CurrentDirect = "Right";
+                if (GoUp == true) CurrentDirect = "Up";
+                if (GoDown == true) CurrentDirect = "Down";
+
+                if (CurrentDirect == "Up")
+                {
+
+                    if (FacingUp == true)
+                    {
+
+                        if (ForwardPossible == true) Decision = "Forward";
+                        else if (ForwardPossible == false)
+                        {
+
+                            if (LeftPossible == true) Decision = "Left";
+                            if (RightPossible == true) Decision = "Right";
+
+                        }
+
+                    }
+
+                    if (FacingDown == true)
+                    {
+                        
+                        if (BackwardPossible == true) Decision = "Backward";
+                        else if (BackwardPossible == false)
+                        {
+
+                            if (LeftPossible == true) Decision = "Right";
+                            if (RightPossible == true) Decision = "Left";
+
+                        }
+
+                    }
+                    
+                    if (FacingLeft == true)
+                    {
+                        
+                        if (RightPossible == true) Decision = "Right";
+                        else if (RightPossible == false)
+                        {
+
+                            if (BackwardPossible == true) Decision = "Backward";
+                            if (ForwardPossible == true) Decision = "Forward";
+
+                        }
+
+                    }
+                    
+                    if (FacingRight == true)
+                    {
+                        
+                        if (LeftPossible == true) Decision = "Left";
+                        else if (LeftPossible == false)
+                            {
+
+                                if (BackwardPossible == true) Decision = "Backward";
+                                if (ForwardPossible == true) Decision = "Forward";
+                            
+                            }
+
+                        }
+                        
+                    }
+
+                if (CurrentDirect == "Down")
+                {
+                    
+                        if (FacingUp == true)
+                        {
+
+                            if (BackwardPossible == true) Decision = "Backward";
+                            else if (BackwardPossible == false)
+                            {
+
+                                if (LeftPossible == true) Decision = "Left";
+                                if (RightPossible == true) Decision = "Right";
+
+                            }
+
+                        }
+
+                        if (FacingDown == true)
+                        {
+                        
+                            if (ForwardPossible == true) Decision = "Forward";
+                            else if (ForwardPossible == false)
+                            {
+
+                                if (LeftPossible == true) Decision = "Right";
+                                if (RightPossible == true) Decision = "Left";
+
+                            }
+
+                        }
+                    
+                        if (FacingLeft == true)
+                        {
+                        
+                            if (LeftPossible == true) Decision = "Left";
+                            else if (LeftPossible == false)
+                            {
+
+                                if (BackwardPossible == true) Decision = "Backward";
+                                if (ForwardPossible == true) Decision = "Forward";
+
+                            }
+
+                        }
+                    
+                        if (FacingRight == true)
+                        {
+                        
+                            if (RightPossible == true) Decision = "Right";
+                            else if (RightPossible == false)
+                            {
+
+                                if (BackwardPossible == true) Decision = "Backward";
+                                if (ForwardPossible == true) Decision = "Forward";
+                            
+                            }
+
+                        }
+                    
+                }
                 
+                if (CurrentDirect == "Left")
+                {
+                    
+                        if (FacingUp == true)
+                        {
+
+                            if (LeftPossible == true) Decision = "Left";
+                            else if (LeftPossible == false)
+                            {
+
+                                if (ForwardPossible == true) Decision = "Forward";
+                                if (BackwardPossible == true) Decision = "Backward";
+
+                            }
+
+                        }
+
+                        if (FacingDown == true)
+                        {
+                        
+                            if (RightPossible == true) Decision = "Right";
+                            else if (RightPossible == false)
+                            {
+
+                                if (BackwardPossible == true) Decision = "Backward";
+                                if (ForwardPossible == true) Decision = "Forward";
+
+                            }
+
+                        }
+                    
+                        if (FacingLeft == true)
+                        {
+                        
+                            if (ForwardPossible == true) Decision = "Forward";
+                            else if (ForwardPossible == false)
+                            {
+
+                                if (RightPossible == true) Decision = "Right";
+                                if (LeftPossible == true) Decision = "Left";
+
+                            }
+
+                        }
+                    
+                        if (FacingRight == true)
+                        {
+                        
+                            if (BackwardPossible == true) Decision = "Backward";
+                            else if (BackwardPossible == false)
+                            {
+
+                                if (LeftPossible == true) Decision = "Left";
+                                if (RightPossible == true) Decision = "Right";
+                            
+                            }
+
+                        }
+                    
+                }
                 
-                
+                if (CurrentDirect == "Right")
+                {
+                    
+                        if (FacingUp == true)
+                        {
+
+                            if (RightPossible == true) Decision = "Right";
+                            else if (RightPossible == false)
+                            {
+
+                                if (ForwardPossible == true) Decision = "Forward";
+                                if (BackwardPossible == true) Decision = "Backward";
+
+                            }
+
+                        }
+
+                        if (FacingDown == true)
+                        {
+                        
+                            if (LeftPossible == true) Decision = "Left";
+                            else if (LeftPossible == false)
+                            {
+
+                                if (BackwardPossible == true) Decision = "Backward";
+                                if (ForwardPossible == true) Decision = "Forward";
+
+                            }
+
+                        }
+                    
+                        if (FacingLeft == true)
+                        {
+                        
+                            if (BackwardPossible == true) Decision = "Backward";
+                            else if (BackwardPossible == false)
+                            {
+
+                                if (RightPossible == true) Decision = "Right";
+                                if (LeftPossible == true) Decision = "Left";
+
+                            }
+
+                        }
+                    
+                        if (FacingRight == true)
+                        {
+                        
+                            if (ForwardPossible == true) Decision = "Forward";
+                            else if (ForwardPossible == false)
+                            {
+
+                                if (LeftPossible == true) Decision = "Left";
+                                if (RightPossible == true) Decision = "Right";
+                            
+                            }
+
+                        }
+                    
+                }
+
             }
-
-
-
-
-            //for (int i = 0; i < Available.Count; i++) Debug.Log(Available[i]);
+            
             
             Decider = Random.Range(0, Available.Count);
             Decision = Available[Decider];
             Debug.Log(Decider);
             
             ReCalc = false;
-            
+
         }
+
+
+
+
+            //for (int i = 0; i < Available.Count; i++) Debug.Log(Available[i]);
+            
+
+            
+        
 
 
 
@@ -307,8 +561,8 @@ public class EnemyMovement : MonoBehaviour
         if (Timer <= 0)
         {
             
-            if (RageOn == false)Timer = 1.5f;
-            if (RageOn == true)Timer = 0.75f;
+            if (RageOn == false)Timer = 1.58f;
+            if (RageOn == true)Timer = 0.79f;
             ReCalc = true;
             
         }
