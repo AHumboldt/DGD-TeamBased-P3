@@ -440,9 +440,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71768346}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -29.61, y: -3.18, z: 0}
-  m_LocalScale: {x: 0.26125935, y: 0.30032223, z: 1}
+  m_LocalScale: {x: 0.26125932, y: 0.3003222, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2497,6 +2497,7 @@ GameObject:
   - component: {fileID: 385100695}
   - component: {fileID: 385100697}
   - component: {fileID: 385100696}
+  - component: {fileID: 385100698}
   m_Layer: 0
   m_Name: BackEar
   m_TagString: Untagged
@@ -2616,6 +2617,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &385100698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385100694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53aba1999c829264d90701c0ca26c6da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 2087573514}
+  MonsterHeart: {fileID: 234163864}
 --- !u!1001 &386217224
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2923,6 +2938,7 @@ GameObject:
   - component: {fileID: 447137762}
   - component: {fileID: 447137764}
   - component: {fileID: 447137763}
+  - component: {fileID: 447137765}
   m_Layer: 0
   m_Name: FrontEar
   m_TagString: Untagged
@@ -3042,6 +3058,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &447137765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447137761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53aba1999c829264d90701c0ca26c6da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 2087573514}
+  MonsterHeart: {fileID: 234163864}
 --- !u!1001 &462183293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3757,7 +3787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb65a10822e18f647b79f68654ef0e46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  enemy: {fileID: 2087573514}
   MonsterHeart: {fileID: 234163864}
 --- !u!212 &557866132
 SpriteRenderer:
@@ -7306,8 +7336,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191988275}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.23752, y: -3.5777209, z: -0.015581904}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -15.23752, y: -3.5777209, z: -0.015581846}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8864,9 +8894,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e98b43070b554b04dadf0d9c46bbf331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  player: {fileID: 0}
-  MonsterHeart: {fileID: 0}
+  enemy: {fileID: 2087573514}
+  player: {fileID: 1511324358}
+  MonsterHeart: {fileID: 234163864}
 --- !u!212 &1551847191
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11746,9 +11776,9 @@ SceneRoots:
   - {fileID: 477808510}
   - {fileID: 491921813}
   - {fileID: 240717349}
-  - {fileID: 1917630853}
-  - {fileID: 1191988278}
   - {fileID: 71768349}
+  - {fileID: 1191988278}
+  - {fileID: 1917630853}
   - {fileID: 1064172533}
   - {fileID: 259477579}
   - {fileID: 1438219654}
