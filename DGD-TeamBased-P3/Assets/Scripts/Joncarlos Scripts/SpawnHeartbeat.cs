@@ -14,7 +14,7 @@ public class SpawnHeartbeat : MonoBehaviour
     {
         timer += Time.deltaTime;
         if (timer >= spawnRate){
-            Instantiate(heartbeatRhythm,new Vector3(-8.059999f, -3.26f, 0.046094f),Quaternion.identity);
+            Instantiate(heartbeatRhythm,new Vector3(-8.469999f, -3.26f, 0.046094f),Quaternion.identity);
             timer = 0;
         }
     }
