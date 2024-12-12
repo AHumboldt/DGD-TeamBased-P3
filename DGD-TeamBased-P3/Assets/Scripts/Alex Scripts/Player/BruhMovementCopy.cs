@@ -7,6 +7,10 @@ using UnityEngine;
 public class BruhMovementCopy : MonoBehaviour
 {
     private GameObject Tile;
+
+    public GameObject BlackFade;
+    public Animator Blackfader;
+    public String Blackfade;
     
     public bool ForwardPossible;
     public bool BackwardPossible;
@@ -133,6 +137,7 @@ public class BruhMovementCopy : MonoBehaviour
                 if (FacingLeft == true) transform.position += new Vector3(-1, 0, 0);
                 if (FacingRight == true) transform.position += new Vector3(1, 0, 0);
                 MoveCooldown = true;
+                Blackfader.Play(Blackfade);
             }
 
             if (MostRecent == "Backward" && BackwardPossible == true && delayTimer >= 0.75f)
@@ -143,6 +148,7 @@ public class BruhMovementCopy : MonoBehaviour
                 if (FacingLeft == true) transform.position += new Vector3(1, 0, 0);
                 if (FacingRight == true) transform.position += new Vector3(-1, 0, 0);
                 MoveCooldown = true;
+                Blackfader.Play(Blackfade);
                 //transform.Rotate(0, 0, 180);
 
             }
@@ -156,6 +162,7 @@ public class BruhMovementCopy : MonoBehaviour
                 if (FacingRight == true) transform.position += new Vector3(0, 1, 0);
                 MoveCooldown = true;
                 transform.Rotate(0, 0, 90);
+                Blackfader.Play(Blackfade);
 
             }
 
@@ -168,6 +175,7 @@ public class BruhMovementCopy : MonoBehaviour
                 if (FacingRight == true) transform.position += new Vector3(0, -1, 0);
                 MoveCooldown = true;
                 transform.Rotate(0, 0, -90);
+                Blackfader.Play(Blackfade);
 
             }
         }
