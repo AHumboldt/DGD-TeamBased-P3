@@ -112,23 +112,24 @@ public class EnemyMovement : MonoBehaviour
         {
             
             Available.Clear();
-            
-            if (FCheck.Detect == true) ForwardPossible = true;
-            if (FCheck.Detect == false) ForwardPossible = false;
-        
-            if (BCheck.Detect == true) BackwardPossible = true;
-            if (BCheck.Detect == false) BackwardPossible = false;
-        
-            if (LCheck.Detect == true) LeftPossible = true;
-            if (LCheck.Detect == false) LeftPossible = false;
-        
-            if (RCheck.Detect == true) RightPossible = true;
-            if (RCheck.Detect == false) RightPossible = false;
 
             
             
             if (RageOn == false)
             {
+                
+                if (FCheck.Detect == true) ForwardPossible = true;
+                if (FCheck.Detect == false) ForwardPossible = false;
+        
+                if (BCheck.Detect == true) BackwardPossible = true;
+                if (BCheck.Detect == false) BackwardPossible = false;
+        
+                if (LCheck.Detect == true) LeftPossible = true;
+                if (LCheck.Detect == false) LeftPossible = false;
+        
+                if (RCheck.Detect == true) RightPossible = true;
+                if (RCheck.Detect == false) RightPossible = false;
+                
             if (ForwardPossible == true && BackwardPossible == false && LeftPossible == false && RightPossible == false)
             {
                 
@@ -229,6 +230,11 @@ public class EnemyMovement : MonoBehaviour
                     for (int i = 0; i <= 3; i++) Available.Add("Right");
                 
                 }
+            
+                Decider = Random.Range(0, Available.Count);
+                Decision = Available[Decider];
+                Debug.Log(Decider);
+            
             }
 
             if (RageOn == true)
@@ -484,11 +490,6 @@ public class EnemyMovement : MonoBehaviour
                 }
 
             }
-            
-            
-            Decider = Random.Range(0, Available.Count);
-            Decision = Available[Decider];
-            Debug.Log(Decider);
             
             ReCalc = false;
 

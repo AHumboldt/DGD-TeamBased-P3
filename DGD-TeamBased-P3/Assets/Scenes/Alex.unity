@@ -4366,6 +4366,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37822831d606f3843852eaea742f746e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BlackFade: {fileID: 0}
+  Blackfader: {fileID: 0}
+  Blackfade: 
   ForwardPossible: 0
   BackwardPossible: 0
   LeftPossible: 0
@@ -7712,7 +7715,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7ef6536a6e0590147bdfd33c9d8db6a0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
