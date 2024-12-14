@@ -1821,9 +1821,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xDistance: 0
   yDistance: 0
-  enemy: {fileID: 0}
-  player: {fileID: 0}
-  Heart: {fileID: 0}
+  HeartPulse: {fileID: 298244373}
+  enemy: {fileID: 2087573514}
+  player: {fileID: 1511324358}
+  Heart: {fileID: 234163865}
   AudioPlaying: 0
   SoundEnter: 0
 --- !u!82 &234163865
@@ -15297,6 +15298,7 @@ MonoBehaviour:
   GoDown: 0
   GoLeft: 0
   GoRight: 0
+  CurrentDirect: 
 --- !u!50 &2087573516
 Rigidbody2D:
   serializedVersion: 4

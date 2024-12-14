@@ -7,6 +7,8 @@ public class MonsterHeart : MonoBehaviour
     public float xDistance;
     public float yDistance;
     
+    public Animator HeartPulse;
+    
     public GameObject enemy;
     public GameObject player;
     public AudioSource Heart;
@@ -18,6 +20,7 @@ public class MonsterHeart : MonoBehaviour
     void Start()
     {
         Heart = GetComponent<AudioSource>();
+        HeartPulse.enabled = false;
     }
 
     // Update is called once per frame
@@ -27,6 +30,7 @@ public class MonsterHeart : MonoBehaviour
         {
             Heart.Play();
             AudioPlaying = true;
+            HeartPulse.enabled = true;
         }
 
         if (Heart.enabled == false)
@@ -39,6 +43,7 @@ public class MonsterHeart : MonoBehaviour
         if (xDistance >= 5 || yDistance >= 5)
         {
             Heart.enabled = false;
+            HeartPulse.enabled = false;
         }
         // if (Vector3.Distance(enemy.transform.position, player.transform.position) < 3)
         // {
