@@ -35,6 +35,7 @@ public class BruhMovementCopy : MonoBehaviour
     private CheckRight RCheck;
 
     public AudioSource MainMusic;
+    public AudioSource ChaseMusic;
     
     public float timer = 0;
     public float spawnRate = 0.79f;
@@ -60,11 +61,12 @@ public class BruhMovementCopy : MonoBehaviour
         RCheck = GameObject.FindWithTag("RTCheck").GetComponent<CheckRight>();
         
         MainMusic.Play();
+        ChaseMusic.Play();
     }
 
     void Update()
     {
-        if (MainMusic.isPlaying == false)
+        if (MainMusic.isPlaying && ChaseMusic.isPlaying == false)
         {
             return;
         }

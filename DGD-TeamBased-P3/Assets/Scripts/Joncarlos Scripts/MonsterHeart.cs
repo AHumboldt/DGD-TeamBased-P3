@@ -31,6 +31,7 @@ public class MonsterHeart : MonoBehaviour
             Heart.Play();
             AudioPlaying = true;
             HeartPulse.enabled = true;
+            HeartPulse.Play("HeartBeat", 0, 0f);
         }
 
         if (Heart.enabled == false)

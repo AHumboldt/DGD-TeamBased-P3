@@ -6,7 +6,12 @@ public class ChaseBehaviorTest : MonoBehaviour
 {
     public AudioSource aS;
     public AudioClip ac;
-    public bool beingChased = true;
+    public bool beingChased = false;
+
+    public AudioSource MainMusic;
+    public AudioSource ChaseMusic;
+
+    public EnemyMovement EM;
 
     public float timer = 0;
     public float spawnRate = 0.79f;
@@ -19,12 +24,21 @@ public class ChaseBehaviorTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        // if (Input.GetKeyDown(KeyCode.D))
+        // {
+        //     beingChased = true;
+        // }
+        //
+        // if (Input.GetKeyDown(KeyCode.S))
+        // {
+        //     beingChased = false;
+        // }
+
+        if (EM.RageOn == true)
         {
             beingChased = true;
         }
-
-        if (Input.GetKeyDown(KeyCode.S))
+        if (EM.RageOn == false)
         {
             beingChased = false;
         }
@@ -35,6 +49,8 @@ public class ChaseBehaviorTest : MonoBehaviour
 
         if (beingChased == true)
         {
+            MainMusic.volume = 0;
+            ChaseMusic.volume = 1;
             if (timer >= spawnRate)
             {
                 aS.PlayOneShot(ac);
@@ -43,9 +59,14 @@ public class ChaseBehaviorTest : MonoBehaviour
             }
         }
         else if (beingChased == false)
+        {
+            MainMusic.volume = 1;
+            ChaseMusic.volume = 0;
+            
             if (timer >= spawnRate)
             {
                 timer = 0;
             }
+        }
     }
 }

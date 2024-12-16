@@ -2296,7 +2296,7 @@ GameObject:
   - component: {fileID: 259477579}
   - component: {fileID: 259477578}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: ChaseMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2309,12 +2309,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259477577}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 13a666ce620a64544b2dec10ae3b381e, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: 418b8cf060e70d247baa58a65f8c3dfe, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -8897,12 +8897,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1064172531}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1aca6baf67541f2418cebec5509166d9, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -9893,6 +9893,9 @@ MonoBehaviour:
   aS: {fileID: 1064172532}
   ac: {fileID: 8300000, guid: 1aca6baf67541f2418cebec5509166d9, type: 3}
   beingChased: 1
+  MainMusic: {fileID: 2034307867}
+  ChaseMusic: {fileID: 259477578}
+  EM: {fileID: 2087573515}
   timer: 0
   spawnRate: 0.79
 --- !u!114 &1191988277
@@ -11566,6 +11569,7 @@ MonoBehaviour:
   FacingRight: 0
   MostRecent: 
   MainMusic: {fileID: 2034307867}
+  ChaseMusic: {fileID: 259477578}
   timer: 0
   spawnRate: 0.79
   delayTimer: 0
@@ -14791,7 +14795,7 @@ GameObject:
   - component: {fileID: 2034307868}
   - component: {fileID: 2034307867}
   m_Layer: 0
-  m_Name: AudioPlayer
+  m_Name: MainMusic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15286,8 +15290,10 @@ MonoBehaviour:
   Decision: 
   RageDecision: 
   Timer: 1.5
+  RageTimer: 0
   TestDetect: 0
   Check: {fileID: 1158223118}
+  GameOver: {fileID: 0}
   RageOn: 0
   CheckArea: 1
   Player: {fileID: 1511324358}
