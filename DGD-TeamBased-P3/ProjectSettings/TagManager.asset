@@ -16,6 +16,8 @@ TagManager:
   - ELTCheck
   - ERTCheck
   - Rage
+  - GameOver
+  - GameOverE
   layers:
   - Default
   - TransparentFX

@@ -30,9 +30,11 @@ public class EnemyMovement : MonoBehaviour
     public string Decision;
     public string RageDecision;
     public float Timer = 1.5f;
+    public float RageTimer = 0;
 
     public int TestDetect = 0;
     public RageCheck Check;
+    public GameOverCheck GameOver;
     public bool RageOn = false;
     public bool CheckArea = true;
 
@@ -68,6 +70,7 @@ public class EnemyMovement : MonoBehaviour
         Debug.Log(PlayerPosition);
         
         Timer -= Time.deltaTime;
+        RageTimer -= Time.deltaTime;
         
         if (this.transform.rotation.eulerAngles.z == 0 || this.transform.rotation.eulerAngles.z == 360 || this.transform.rotation.eulerAngles.z == -360) //up
         {
@@ -112,23 +115,22 @@ public class EnemyMovement : MonoBehaviour
         {
             
             Available.Clear();
-
             
+            if (FCheck.Detect == true) ForwardPossible = true;
+            if (FCheck.Detect == false) ForwardPossible = false;
+        
+            if (BCheck.Detect == true) BackwardPossible = true;
+            if (BCheck.Detect == false) BackwardPossible = false;
+        
+            if (LCheck.Detect == true) LeftPossible = true;
+            if (LCheck.Detect == false) LeftPossible = false;
+        
+            if (RCheck.Detect == true) RightPossible = true;
+            if (RCheck.Detect == false) RightPossible = false;
             
             if (RageOn == false)
             {
                 
-                if (FCheck.Detect == true) ForwardPossible = true;
-                if (FCheck.Detect == false) ForwardPossible = false;
-        
-                if (BCheck.Detect == true) BackwardPossible = true;
-                if (BCheck.Detect == false) BackwardPossible = false;
-        
-                if (LCheck.Detect == true) LeftPossible = true;
-                if (LCheck.Detect == false) LeftPossible = false;
-        
-                if (RCheck.Detect == true) RightPossible = true;
-                if (RCheck.Detect == false) RightPossible = false;
                 
             if (ForwardPossible == true && BackwardPossible == false && LeftPossible == false && RightPossible == false)
             {
@@ -240,10 +242,43 @@ public class EnemyMovement : MonoBehaviour
             if (RageOn == true)
             {
 
+                if (EnemyPosition.x == PlayerPosition.x && GoLeft == true || EnemyPosition.x == PlayerPosition.x && GoRight == true || EnemyPosition.y == PlayerPosition.y && GoUp == true || EnemyPosition.y == PlayerPosition.y && GoDown == true || RageTimer <= 0)
+                {
+                    
+                    Debug.Log("We've reset");
+
+                    GoDown = false;
+                    GoUp = false;
+                    GoRight = false;
+                    GoLeft = false;
+                
+                    RageOn = false;
+                    CheckArea = true;
+                
+                }
+
+                if (EnemyPosition.x == PlayerPosition.x)
+                {
+
+                    GoLeft = false;
+                    GoRight = false;
+
+                }
+                
+                if (EnemyPosition.y == PlayerPosition.y)
+                {
+
+                    GoUp = false;
+                    GoDown = false;
+
+                }
+
                 if (GoLeft == true) CurrentDirect = "Left";
                 if (GoRight == true) CurrentDirect = "Right";
                 if (GoUp == true) CurrentDirect = "Up";
                 if (GoDown == true) CurrentDirect = "Down";
+
+                
 
                 if (CurrentDirect == "Up")
                 {
@@ -330,8 +365,8 @@ public class EnemyMovement : MonoBehaviour
                             else if (ForwardPossible == false)
                             {
 
-                                if (LeftPossible == true) Decision = "Right";
-                                if (RightPossible == true) Decision = "Left";
+                                if (LeftPossible == true) Decision = "Left";
+                                if (RightPossible == true) Decision = "Right";
 
                             }
 
@@ -575,19 +610,26 @@ public class EnemyMovement : MonoBehaviour
             EnemyPosition = GameObject.FindWithTag("Enemy").transform.position;
             Debug.Log(PlayerPosition);
             Debug.Log(EnemyPosition);
-            RageOn = true;
-            CheckArea = false;
-
-        }
-
-        if (RageOn == true)
-        {
+            RageTimer = 10;
             
             if (EnemyPosition.y > PlayerPosition.y) GoDown = true;
             else if (EnemyPosition.y < PlayerPosition.y) GoUp = true;
             
             if (EnemyPosition.x > PlayerPosition.x) GoLeft = true;
             else if (EnemyPosition.x < PlayerPosition.x) GoRight = true;
+            
+            
+            RageOn = true;
+            CheckArea = false;
+
+        }
+
+        if (GameOver.End == true)
+        {
+            
+
+            Debug.Log("You Died!");
+            
 
         }
 

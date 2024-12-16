@@ -1,28 +1,20 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RageCheck : MonoBehaviour
+public class GameOverCheck : MonoBehaviour
 {
 
-    public bool Rage;
-
+    public bool End;
+    
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.tag == "Player")
+        if (col.tag == "GameOver")
         {
             
             Debug.Log("Player Spotted");
-            Rage = true;
+            End = true;
 
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D col)
-    {
-
-        Rage = false;
-
     }
 }
