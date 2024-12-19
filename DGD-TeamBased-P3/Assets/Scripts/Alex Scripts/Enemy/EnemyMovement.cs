@@ -69,7 +69,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (Player.tag == "Player")
         {
-            SceneManager.LoadScene("YouLose");
+            SceneManager.LoadScene("Jumpscare");
         }
     }
 
