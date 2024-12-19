@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using Random = UnityEngine.Random;
 
@@ -63,6 +65,13 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D Player)
+    {
+        if (Player.tag == "Player")
+        {
+            SceneManager.LoadScene("YouLose");
+        }
+    }
 
     void Update()
     {
@@ -108,9 +117,7 @@ public class EnemyMovement : MonoBehaviour
             FacingRight = true;
             
         }
-
-
-
+// Enemy enter player game over
         if (ReCalc == true)
         {
             

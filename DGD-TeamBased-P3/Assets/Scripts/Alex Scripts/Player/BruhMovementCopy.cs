@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BruhMovementCopy : MonoBehaviour
 {
@@ -36,6 +37,7 @@ public class BruhMovementCopy : MonoBehaviour
 
     public AudioSource MainMusic;
     public AudioSource ChaseMusic;
+    public float MusicDelay = 0.2f;
     
     public float timer = 0;
     public float spawnRate = 0.79f;
@@ -60,6 +62,11 @@ public class BruhMovementCopy : MonoBehaviour
         LCheck = GameObject.FindWithTag("LTCheck").GetComponent<CheckLeft>();
         RCheck = GameObject.FindWithTag("RTCheck").GetComponent<CheckRight>();
         
+        Invoke("PlayMusic",MusicDelay);
+    }
+
+    void PlayMusic()
+    {
         MainMusic.Play();
         ChaseMusic.Play();
     }
@@ -100,10 +107,16 @@ public class BruhMovementCopy : MonoBehaviour
                 // delayTimer = timer;
             }
         }
+        
+        
+        if ((Mathf.Abs(transform.position.x - 8) < 0.1f) && Mathf.Abs(transform.position.y - 0) < 0.1f)
+        {
+            Debug.Log("ExitReached");
+            SceneManager.LoadScene("GameOver");
+        }
     }
     void FixedUpdate()
     {
-
         if (MainMusic.isPlaying == false)
         {
             return;

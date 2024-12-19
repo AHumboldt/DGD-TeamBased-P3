@@ -45,6 +45,7 @@ public class MonsterHeart : MonoBehaviour
         {
             Heart.enabled = false;
             HeartPulse.enabled = false;
+           // HeartPulse.Play("HeartBeat", 0, 0f);
         }
         // if (Vector3.Distance(enemy.transform.position, player.transform.position) < 3)
         // {
